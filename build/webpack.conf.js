@@ -58,7 +58,8 @@ const config = {
       CONSTANT: path.resolve(common.path.src, 'utils/constant'),
       REQUEST: path.resolve(common.path.src, 'utils/request'),
       SCSS: path.resolve(common.path.src, 'assets/scss'),
-      IMAGE: path.resolve(common.path.src, 'assets/images')
+      IMAGE: path.resolve(common.path.src, 'assets/images'),
+      CONFIG: path.resolve(common.path.src, 'config')
     }
   },
   resolveLoader: {
@@ -97,16 +98,16 @@ const config = {
         }
       }, {
         test: /\.woff/,
-        loader: 'url?prefix=font/&limit=10000&mimetype=application/font-woff'
+        loader: 'url-loader?prefix=font/&limit=10000&mimetype=application/font-woff'
       }, {
         test: /\.ttf/,
-        loader: 'file?prefix=font/'
+        loader: 'file-loader?prefix=font/'
       }, {
         test: /\.eot/,
-        loader: 'file?prefix=font/'
+        loader: 'file-loader?prefix=font/'
       }, {
         test: /\.svg/,
-        loader: 'file?prefix=font/'
+        loader: 'file-loader?prefix=font/'
       }, {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({

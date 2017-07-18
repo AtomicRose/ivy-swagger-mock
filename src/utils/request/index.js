@@ -12,7 +12,8 @@ let defaults = {
         'content-type': 'application/json'
     },
     credentials: 'same-origin',
-    ignoreAuthorization: false
+    ignoreAuthorization: true,
+    ignoreResponseType: false
 };
 // if (env.envName === 'mock') {
 //     delete defaults.headers.Authorization
@@ -118,13 +119,17 @@ let doRequest = (url, options, todoObj) => {
                 (response) => {
                     if (response.ok) {
                         response.json().then((data) => {
-                            if (data.code == 1000000) {
-                                resolve(todoObj.successDo(data));
-                            } else {
-                                if (data.code == '过期' || data.code == '无效') {
-                                    goToLogin();
+                            if (!options.ignoreResponseType) {
+                                if (data.code == 1000000) {
+                                    resolve(todoObj.successDo(data));
+                                } else {
+                                    if (data.code == '过期' || data.code == '无效') {
+                                        goToLogin();
+                                    }
+                                    reject(todoObj.errorDo(data));
                                 }
-                                reject(todoObj.errorDo(data));
+                            } else {
+                                resolve(todoObj.successDo(data));
                             }
                         }, (error) => {
                             reject(todoObj.errorDo({

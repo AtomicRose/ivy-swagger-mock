@@ -1,7 +1,7 @@
-import state_docHome from './Document/index';
+import state_header from './Header/index';
 export default {
   initialState: {},
   children: {
-    state_docHome
+    state_header
   }
 };

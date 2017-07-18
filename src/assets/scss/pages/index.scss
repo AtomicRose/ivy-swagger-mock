@@ -1,0 +1,11 @@
+.ivy-flex-main{
+  display: flex;
+  flex-direction: row;
+  .ivy-side-nav{
+    width: 100px;
+    height: inherit;
+  }
+  .ivy-content{
+    flex: 1;
+  }
+}
