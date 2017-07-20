@@ -1,4 +1,4 @@
-import createLazyViewLoader from '../createLazyViewLoader';
+                                      import createLazyViewLoader from '../createLazyViewLoader';
 export default {
   path: 'home',
   indexRoute: {

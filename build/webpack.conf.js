@@ -37,6 +37,7 @@ const config = {
       'redux-thunk'
     ]
   },
+  devtool: 'eval-source-map',
   output: {
     path: path.join(common.path.dist, 'static'),
     publicPath: common.DEPLOY_SERVICE_PATH + '/static/'
@@ -160,6 +161,10 @@ if (process.env.NODE_ENV === ENV_DEVELOPMENT) {
     .module
     .rules
     .push({
+      test: /\.js$/,
+      use: ["source-map-loader"],
+      enforce: "pre"
+    }, {
       test: /\.(js|jsx)$/,
       enforce: 'pre',
       exclude: /(node_modules|bower_components|\.spec\.js)/,
