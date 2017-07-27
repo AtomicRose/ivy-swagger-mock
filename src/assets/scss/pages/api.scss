@@ -1,0 +1,48 @@
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+.ivy-api-page {
+    .once-api {
+        float: left;
+        width: 100%;
+        border-width: 1px;
+        border-style: solid;
+        margin-bottom: 20px;
+        &.once-api-post {
+            border-color: $brand-success;
+        }
+        &.once-api-get {
+            border-color: $brand-info;
+        }
+        &.once-api-put {
+            border-color: $brand-warning;
+        }
+        &.once-api-delete {
+            border-color: $brand-danger;
+        }
+    }
+    pre {
+        background: none;
+        padding: 10px;
+        color: #eee;
+        code {
+            background: none;
+            width: 100%;
+            overflow: hidden;
+            color: #fff;
+        }
+    }
+    .return-to-top {
+        position: fixed;
+        width: 80px;
+        height: 80px;
+        bottom: 0;
+        right: 0;
+        background: rgba(255, 255, 255, .1);
+        color: $brand-info;
+        font-size: 16px;
+        line-height: 80px;
+        text-align: center;
+        border-top-left-radius: 10px;
+        cursor: pointer;
+    }
+}

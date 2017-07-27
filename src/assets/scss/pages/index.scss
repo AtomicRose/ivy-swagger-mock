@@ -1,11 +1,22 @@
-.ivy-flex-main{
-  display: flex;
-  flex-direction: row;
-  .ivy-side-nav{
-    width: 100px;
-    height: inherit;
-  }
-  .ivy-content{
-    flex: 1;
-  }
+.ivy-flex-main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    .ivy-side-nav {
+        max-width: 300px;
+        height: inherit;
+        overflow-x: hidden;
+        border-right: 1px solid rgba(255, 255, 255, .2);
+        .side-nav-item {
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+    .ivy-content {
+        flex: 1;
+    }
 }

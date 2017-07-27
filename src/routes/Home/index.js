@@ -3,7 +3,7 @@ export default {
   path: 'home',
   indexRoute: {
     component: createLazyViewLoader(cb => {
-      require.ensure([], require => cb(require('VIEW/Home')));
+      require.ensure([], require => cb(require('VIEW/Home/index')));
     })
   },
 

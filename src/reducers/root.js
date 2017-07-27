@@ -1,7 +1,7 @@
-import state_header from './Header/index';
+import state_apiSource from './APISource/index';
 export default {
   initialState: {},
   children: {
-    state_header
+    state_apiSource
   }
 };

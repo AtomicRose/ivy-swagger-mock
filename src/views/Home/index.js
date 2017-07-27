@@ -1,16 +1,7 @@
 import React from 'react';
+import createPureComponent from 'UTIL/createPureComponent';
+import APIList from './blocks/APIList';
 
-class Home extends React.PureComponent {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div>
-        content main
-      </div>
-    );
-  }
-}
-
-export default Home;
+export default createPureComponent(({ state_apiSource }) => {
+    return (<APIList {...state_apiSource} />);
+});
