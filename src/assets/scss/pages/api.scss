@@ -45,4 +45,27 @@
         border-top-left-radius: 10px;
         cursor: pointer;
     }
+    .mock-data-title {
+        border-width: 1px 0 1px 0;
+        border-style: solid;
+        &.title-get {
+            border-color: $brand-info;
+            color: $brand-info;
+        }
+        &.title-post {
+            border-color: $brand-success;
+            color: $brand-success;
+        }
+        &.title-put {
+            border-color: $brand-warning;
+            color: $brand-warning;
+        }
+        &.title-delete {
+            border-color: $brand-danger;
+            color: $brand-danger;
+        }
+    }
+    .mock-data {
+        background: rgba(0, 210, 255, .15);
+    }
 }

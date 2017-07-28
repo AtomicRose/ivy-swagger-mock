@@ -1,6 +1,7 @@
 import 'SCSS/pages/api.scss';
 import React from 'react';
 import highlight from 'ACTION/highlight';
+import isShowMock from 'ACTION/APISource/isShowMock';
 class APIList extends React.PureComponent {
   componentDidMount() {
     highlight();
@@ -10,6 +11,16 @@ class APIList extends React.PureComponent {
   }
   handleReturnToTop() {
     window.scrollTo(0, 0);
+  }
+  handleShowMockData(fileKey, apiKey) {
+
+    isShowMock(this.props.showMockKey === apiKey ? '' : apiKey);
+  }
+  handleDeleteMockData(fileKey, apiKey, mockKey) {
+    // TODO delete mock data
+  }
+  handleCtrlMockEffective(fileKey, apiKey, mockKey) {
+    // TODO ctrl 
   }
   render() {
     let apiObj = this.props.apiSourceFetch.response || {};
@@ -46,7 +57,6 @@ class APIList extends React.PureComponent {
             for (let j = 0; j < list.length; j++) {
               let currentApi = list[j];
               let sObj = currentApi.obj;
-
               let requestParams = {
                 header: [],
                 path: [],
@@ -166,6 +176,22 @@ class APIList extends React.PureComponent {
                 <div className="col-sm-12 col-md-6">
                   <h4>ResponseExample</h4>
                   {examples}
+                </div>
+                <div className={'col-sm-12 col-md-12 mock-data-title title-' + currentApi.type}>
+                  <h4>我的Mock <span className={'pull-right glyphicon glyphicon-chevron-' + ((this.props.showMockKey === (currentApi.type + currentApi.path)) ? 'up' : 'down')} onClick={() => this.handleShowMockData(apiObj.info, (currentApi.type + currentApi.path))}></span></h4>
+                </div>
+                <div className={'col-sm-12 col-md-12 mock-data ' + ((this.props.showMockKey === (currentApi.type + currentApi.path)) ? 'show' : 'hidden')}>
+                  <div className="col-sm-12 col-md-6">
+                    <h5>Mock1 <button className={'btn btn-xs btn-success'} onClick={() => this.handleCtrlMockEffective(apiObj.info, (currentApi.type + currentApi.path), 111)}>已启用</button> <button type="button" className="btn btn-xs btn-danger pull-right" onClick={() => this.handleDeleteMockData(apiObj.info, (currentApi.type + currentApi.path), 222)}>删除</button></h5>
+                    <pre>
+                      <code>
+                        {JSON.stringify({
+                          a: 1,
+                          b: [{ name: 'a', age: 1 }, { name: 'jack', age: 2 }]
+                        }, null, 2)}
+                      </code>
+                    </pre>
+                  </div>
                 </div>
               </div>);
             }

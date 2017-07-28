@@ -42,7 +42,7 @@ class Sidebar extends React.PureComponent {
           let list = item.list;
           for (let j = 0; j < list.length; j++) {
             let sItem = list[j];
-            apiList.push(<p onClick={() => this.handleScrollTo(sItem.type + sItem.path)} className="side-nav-item" key={j}><span style={{ marginRight: '10px' }} className={"label " + (sItem.type === 'get' ? 'label-info' : (sItem.type === 'post') ? 'label-success' : (sItem.type === 'put' ? 'label-warning' : (sItem.type === 'delete' ? 'label-danger' : 'label-default')))}>{sItem.type}</span>{sItem.obj.summary}</p>);
+            apiList.push(<p onClick={() => this.handleScrollTo(sItem.type + sItem.path)} className="side-nav-item" key={j} title={sItem.obj.summary}><span style={{ marginRight: '10px' }} className={"label " + (sItem.type === 'get' ? 'label-info' : (sItem.type === 'post') ? 'label-success' : (sItem.type === 'put' ? 'label-warning' : (sItem.type === 'delete' ? 'label-danger' : 'label-default')))}>{sItem.type}</span>{sItem.obj.summary}</p>);
           }
           return (<div key={i}><h4 onClick={() => this.handleScrollTo(item.tag)}>{item.tag}</h4>{apiList}</div>);
         })
