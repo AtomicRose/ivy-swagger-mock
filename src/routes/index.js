@@ -4,12 +4,10 @@ import createLazyViewLoader from './createLazyViewLoader';
 
 // 引入需要模块的路由
 import homeRoute from './Home/index';
+import documentRoute from './document';
 
 export default {
-  path: 'swagger-mock',
-  component: createLazyViewLoader(cb => {
-    require.ensure([], require => cb(require('VIEW/App')));
-  }),
+  path: '/',
   indexRoute: {
     component: createLazyViewLoader(cb => {
       require.ensure([], require => cb(require('VIEW/Home/index')));
@@ -19,6 +17,8 @@ export default {
   childRoutes: [
     // 加载子模块路由
     homeRoute,
+    documentRoute,
+
     // 重定向
     {
       path: 'redirect',
