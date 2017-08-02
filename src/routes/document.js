@@ -10,5 +10,12 @@ export default {
     })
   },
 
-  childRoutes: []
+  childRoutes: [
+    {
+      path: 'dialog',
+      component: createLazyViewLoader(cb => {
+        require.ensure([], require => cb(require('VIEW/Document/DialogExample')));
+      })
+    }
+  ]
 };
