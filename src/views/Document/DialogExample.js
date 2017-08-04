@@ -6,11 +6,11 @@ class DialogExample extends React.PureComponent {
   constructor(props) {
     super(props);
   }
-  handleDialog(type) {
+  handleDialog(type, id) {
     openDialog({
-      id: type,
+      id: id,
       type: type,
-      message: 'I click ' + type,
+      message: 'I click ' + type + 'ID is:' + id,
       beforeCloseCall: function (value) {
         console.log('如果我不返回true，则不会关闭dialog');
         if (type === 'confirm' && value === 'ok') {
@@ -21,8 +21,7 @@ class DialogExample extends React.PureComponent {
       },
       afterCloseCall: function (value) {
         console.log('我通过点击了' + value + '的方式关闭了');
-      },
-      autoClose: type === 'toast' ? 2 : 0
+      }
     });
   }
   handleCloseDialog(id) {
@@ -31,12 +30,13 @@ class DialogExample extends React.PureComponent {
   render() {
     return (
       <div>
-        <button className="btn btn-info" onClick={() => this.handleDialog('alert')}>alert</button>
-        <button className="btn btn-info" onClick={() => this.handleDialog('confirm')}>confirm</button>
-        <button className="btn btn-info" onClick={() => this.handleDialog('toast')}>toast</button>
-        <button className="btn btn-danger" onClick={() => this.handleCloseDialog('alert')}>close alert</button>
-        <button className="btn btn-danger" onClick={() => this.handleCloseDialog('confirm')}>close confirm</button>
-        <button className="btn btn-danger" onClick={() => this.handleCloseDialog('toast')}>close toast</button>
+        <button className="btn btn-info" onClick={() => this.handleDialog('alert', 1)}>alert</button>
+        <button className="btn btn-info" onClick={() => this.handleDialog('confirm', 2)}>confirm</button>
+        <button className="btn btn-info" onClick={() => this.handleDialog('toast', 3)}>toast</button>
+        <button className="btn btn-info" onClick={() => this.handleDialog('toast', 4)}>toast2</button>
+        <button className="btn btn-danger" onClick={() => this.handleCloseDialog(1)}>close alert</button>
+        <button className="btn btn-danger" onClick={() => this.handleCloseDialog(2)}>close confirm</button>
+        <button className="btn btn-danger" onClick={() => this.handleCloseDialog(3)}>close toast</button>
         <button className="btn btn-danger" onClick={() => this.handleCloseDialog('all')}>close all dialog</button>
         <Dialogs items={this.props.state_dialog.dialogs} />
       </div>

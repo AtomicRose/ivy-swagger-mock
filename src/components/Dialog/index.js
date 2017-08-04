@@ -1,6 +1,7 @@
 import React from 'react';
 import closeDialog from 'ACTION/Dialog/closeDialog';
 
+let dialogT = {};
 class Dialogs extends React.PureComponent {
   handleCloseDialog(opts, type) {
     if (opts.beforeCloseCall && typeof opts.beforeCloseCall === 'function') {
@@ -14,6 +15,17 @@ class Dialogs extends React.PureComponent {
     }
   }
   renderDialogHtml(item, i) {
+    if (item.reOpen && dialogT[item.id]) {
+      clearTimeout(dialogT[item.id]);
+      delete dialogT[item.id];
+    }
+
+    if (item.options.autoClose && !dialogT[item.id]) {
+      dialogT[item.id] = setTimeout(() => {
+        this.handleCloseDialog(item.options, 'auto');
+        delete dialogT[item.id];
+      }, item.options.autoClose * 1000);
+    }
     let opts = item.options;
     let id = item.id;
     let html = <div key={i} className="ivy-dialog">

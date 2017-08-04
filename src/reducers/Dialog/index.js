@@ -12,6 +12,7 @@ const DialogStore = {
       for (let i = 0; i < temp.length; i++) {
         if (temp[i].id === payload.id) {
           temp.splice(i, 1);
+          payload.reOpen = true;
           break;
         }
       }
