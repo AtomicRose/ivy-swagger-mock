@@ -21,7 +21,7 @@ if (__TEST__) {
   env = {
     envName: 'test',
     api_url: {
-      sourceApiDomain: 'http://services.dev.mingyizhudao.com'
+      sourceApiDomain: 'http://api.nmirage.cc'
     }
   };
 }
@@ -29,7 +29,7 @@ if (__DEV__) {
   env = {
     envName: 'development',
     api_url: {
-      sourceApiDomain: 'http://services.dev.mingyizhudao.com'
+      sourceApiDomain: 'http://api.nmirage.cc'
     }
   };
 }

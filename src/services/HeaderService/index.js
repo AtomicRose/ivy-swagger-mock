@@ -16,7 +16,7 @@ let HeaderService = {
     return HttpRequest.get({
       url: SOURCE_API_DOMAIN + (params.path || ''),
       params: {}
-    }, baseToDo, { ignoreResponseType: true });
+    }, baseToDo);
   }
 };
 export default HeaderService;
