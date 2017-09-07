@@ -4,7 +4,7 @@ const rootPath = path.resolve(__dirname, '..');
 const src = path.join(rootPath, 'src');
 
 const common = {
-    DEPLOY_SERVICE_PATH: '/doctor',
+    DEPLOY_SERVICE_PATH: '',
     APP_ID: 'MYZD-DOCTOR-H5',
     path: {
         rootPath: rootPath,
