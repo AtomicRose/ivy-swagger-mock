@@ -1,6 +1,6 @@
 import AppStorage from 'CONFIG/AppStorage';
 import env from 'CONFIG/envs';
-import queryParam from 'UTIL/base/queryParam';
+import queryParam from 'UTIL/base/QueryParam';
 
 let signOut = (redirectUrl, stay) => {
     AppStorage.TOKEN_STORAGE.removeItem('Authorization');

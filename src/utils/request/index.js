@@ -2,7 +2,7 @@ import 'whatwg-fetch';
 import env from 'CONFIG/envs';
 import refreshToken from 'REQUEST/refreshToken';
 import AppStorage from 'CONFIG/AppStorage';
-import queryParam from 'UTIL/base/queryParam';
+import queryParam from 'UTIL/base/QueryParam';
 // import { isWeixinBrowser } from 'UTIL/base/isWechat';
 
 let defaults = {

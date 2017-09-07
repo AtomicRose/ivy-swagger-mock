@@ -1,7 +1,7 @@
 import AppStorage from 'CONFIG/AppStorage';
 import HttpRequest from 'UTIL/request';
 import env from 'CONFIG/envs';
-import queryParam from 'UTIL/base/queryParam';
+import queryParam from 'UTIL/base/QueryParam';
 import jsrsasign from 'UTIL/jsrsasign/jws';
 
 const API_URL = env.login_api;
