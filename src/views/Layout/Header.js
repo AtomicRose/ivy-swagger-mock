@@ -5,7 +5,7 @@ import getSourceApiJson from 'ACTION/APISource/getSourceApiJson';
 class Header extends React.PureComponent {
   componentDidMount() {
     getSourceApiJson({
-      path: '/crm/docs/v1/swagger.json'
+      path: '/api/bd-service/api-docs.json'
     });
   }
   render() {

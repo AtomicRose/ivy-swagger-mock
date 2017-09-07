@@ -3,7 +3,7 @@ if (__PROD__) {
   env = {
     envName: 'production',
     api_url: {
-      sourceApiDomain: 'http://services.dev.mingyizhudao.com'
+      sourceApiDomain: 'http://api.nmirage.cc'
     }
   };
   // window.envs = envs;
@@ -13,7 +13,7 @@ if (__ALPHA__) {
   env = {
     envName: 'alpha',
     api_url: {
-      sourceApiDomain: 'http://services.dev.mingyizhudao.com'
+      sourceApiDomain: 'http://api.nmirage.cc'
     }
   };
 }
