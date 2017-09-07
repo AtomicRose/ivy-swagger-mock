@@ -23,7 +23,7 @@ class APIList extends React.PureComponent {
     // TODO ctrl 
   }
   render() {
-    let apiObj = this.props.apiSourceFetch.response || {};
+    let apiObj = this.props.apiSourceFetch.response && this.props.apiSourceFetch.response.data || {};
     let paths = apiObj.paths;
     let pathArray = [];
     let resObj = {};
@@ -78,11 +78,12 @@ class APIList extends React.PureComponent {
               let responses = sObj.responses;
               for (let m in responses) {
                 let ce = responses[m];
+                console.log(ce);
                 examples.push(<div className="response-item" key={m}>
-                  <h5>{'【' + m + '】' + ce.description} <span className="label label-default">{ce.schema.type}</span></h5>
+                  <h5>{'【' + m + '】' + ce.description} <span className="label label-default">{ce.schema ? ce.schema.type || '' : ''}</span></h5>
                   <pre>
                     <code>
-                      {JSON.stringify(ce.schema.example, null, 2)}
+                      {JSON.stringify(ce.schema ? ce.schema.example || '' : '', null, 2)}
                     </code>
                   </pre>
                 </div>);
